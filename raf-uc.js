@@ -23,7 +23,7 @@
 	var root = (typeof self == 'object' && self.self == self && self) ||
 			(typeof global == 'object' && global.global == global && global);
 
-	// Set up Backbone appropriately for the environment. Start with AMD.
+	// Set up raf-uc appropriately for the environment. Start with AMD.
 	if (typeof define === 'function' && define.amd) {
 
 		define(['exports'], function(exports) {
@@ -41,28 +41,28 @@
 		root.rafUC = factory( root, {} );
 	}
 
-}( function( root, rafUC ) {
+}( function( root, exports ) {
 
 	'use strict';
 	
 	var previousRafUC = root.rafUC;
-	rafUC.noConflict = function() {
+	exports.noConflict = function() {
 		root.rafUC = previousRafUC;
 		return this;
 	};
 
 	var lastTime = 0;
-	var prefixes = 'webkit moz ms o'.split(' ');
+	var prefixList = 'webkit moz ms o'.split(' ');
 	// get unprefixed rAF and cAF, if present
 	var requestAnimationFrame = root.requestAnimationFrame;
 	var cancelAnimationFrame = root.cancelAnimationFrame;
-	// loop through vendor prefixes and get prefixed rAF and cAF
+	// loop through vendor prefixList and get prefixed rAF and cAF
 	var prefix;
-	for( var i = 0; i < prefixes.length; i++ ) {
+	for( var i = 0; i < prefixList.length; i++ ) {
 		if ( requestAnimationFrame && cancelAnimationFrame ) {
 			break;
 		}
-		prefix = prefixes[i];
+		prefix = prefixList[i];
 		requestAnimationFrame = requestAnimationFrame || root[ prefix + 'RequestAnimationFrame' ];
 		cancelAnimationFrame  = cancelAnimationFrame  || root[ prefix + 'CancelAnimationFrame' ] ||
 		root[ prefix + 'CancelRequestAnimationFrame' ];
@@ -70,7 +70,8 @@
 
 	// fallback to setTimeout and clearTimeout if either request/cancel is not supported
 	if ( !requestAnimationFrame || !cancelAnimationFrame ) {
-		requestAnimationFrame = function( callback, element ) {
+
+		requestAnimationFrame = function( callback ) {
 			var currTime = new Date().getTime();
 			var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
 			var id = root.setTimeout( function() {
@@ -89,8 +90,8 @@
 	root.requestAnimationFrame = requestAnimationFrame;
 	root.cancelAnimationFrame = cancelAnimationFrame;
 
-	rafUC.raf = requestAnimationFrame;
-	rafUC.caf = requestAnimationFrame;
+	exports.raf = requestAnimationFrame;
+	exports.caf = requestAnimationFrame;
 
-	return rafUC;
+	return exports;
 }));
