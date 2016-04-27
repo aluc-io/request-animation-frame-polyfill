@@ -1,0 +1,25 @@
+{
+  "name": "raf-uc",
+  "main": "raf-uc.js",
+  "version": "0.1.0",
+  "description": "requestAnimationFrame polyfill support AMD and CommonJS",
+  "scripts": {
+    "test": "Not yet"
+  },
+  "repository": {
+    "type": "git",
+		"url": "https://github.com/b6pzeusbc54tvhw5jgpyw8pwz2x6gs/raf-uc"
+  },
+  "keywords": [
+    "raf",
+    "requestAnimationFrame"
+  ],
+  "author": {
+    "name": "Alfred UC",
+    "email": "b6pzeusbc54tvhw5jgpyw8pwz2x6gs@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+		"url": "https://github.com/b6pzeusbc54tvhw5jgpyw8pwz2x6gs/raf-uc/issues"
+  }
+}
