@@ -91,7 +91,7 @@
 	root.cancelAnimationFrame = cancelAnimationFrame;
 
 	exports.raf = requestAnimationFrame;
-	exports.caf = requestAnimationFrame;
+	exports.caf = cancelAnimationFrame;
 
 	return exports;
 }));
