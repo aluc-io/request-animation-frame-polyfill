@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "lib": ["es2017","dom"],
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "outDir": "lib",
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true
+  },
+  "typeRoots": ["./@types"],
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "@types/global.test.d.ts"
+  ]
+}
