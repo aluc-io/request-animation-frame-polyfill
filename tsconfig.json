@@ -8,7 +8,8 @@
     "target": "es2017",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "outDir": "lib",
+    "outDir": "build",
+    "declaration": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "noImplicitAny": true

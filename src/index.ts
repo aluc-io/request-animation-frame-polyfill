@@ -18,7 +18,7 @@ const nowOffset = Date.now();
 
 // use performance api if exist, otherwise use Date.now.
 // Date.now polyfill required.
-export const pnow = () => {
+export const pnow = (): number => {
   if (root.performance && typeof root.performance.now === 'function') {
     return root.performance.now()
   }
@@ -77,11 +77,13 @@ const nameArr = vendorPrefixArr.map( vp => {
 
 const idx = nameArr.findIndex(({ raf }) => root[raf])
 
-export const requestAnimationFrame = idx > -1
+type TRequestAnimationFrame = (callback: Function) => number
+type TCancelAnimationFrame = (id: number) => void
+export const requestAnimationFrame: TRequestAnimationFrame = idx > -1
   ? root[nameArr[idx].raf]
   : polyfillRaf
 
-export const cancelAnimationFrame = idx > -1
+export const cancelAnimationFrame: TCancelAnimationFrame = idx > -1
   ? root[nameArr[idx].caf[0]] || root[nameArr[idx].caf[1]]
   : polyfillCaf
 
