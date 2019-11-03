@@ -1,10 +1,11 @@
 {
   "name": "request-animation-frame-polyfill",
   "main": "index.js",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "requestAnimationFrame polyfill support AMD and CommonJS",
   "scripts": {
-    "test": "node example/test.js"
+    "test": "node example/test.js",
+    "postinstall": "node postinstall.js"
   },
   "repository": {
     "type": "git",
