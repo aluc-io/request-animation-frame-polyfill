@@ -94,9 +94,12 @@ if(typeof window !== 'undefined') {
   root.cancelAnimationFrame = cancelAnimationFrame
 }
 
-const rafCaf = { requestAnimationFrame, cancelAnimationFrame }
 
 // Node Export
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = rafCaf
+  module.exports = {
+    requestAnimationFrame,
+    cancelAnimationFrame,
+    pnow,
+  }
 }
