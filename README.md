@@ -1,6 +1,5 @@
 # request-animation-frame-polyfill
-request-animation-frame-polyfill supports the polyfill of `requestAnimationFrame`
-in nodejs, old browser environments.
+`requestAnimationFrame` polyfill library for nodejs and old browsers.
 
 ## Install
 
@@ -33,10 +32,7 @@ $ npx babel src/index.ts > lib/request-animation-frame-polyfill.js
 
 Test:
 ```shell
-$ yarn run test
-
-## For commonJS
-$ yarn run build && node ./src/index.node.test.js
+$ yarn test
 ```
 
 ## Deploy

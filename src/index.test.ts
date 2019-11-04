@@ -1,4 +1,4 @@
-import { requestAnimationFrame, cancelAnimationFrame } from '../lib/request-animation-frame-polyfill'
+import { requestAnimationFrame, cancelAnimationFrame } from './index'
 
 let idHello: number
 let idHi: number

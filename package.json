@@ -1,13 +1,13 @@
 {
   "name": "request-animation-frame-polyfill",
   "main": "lib/request-animation-frame-polyfill.js",
-  "version": "1.0.0-rc.4",
+  "version": "1.0.0-rc.6",
   "description": "requestAnimationFrame polyfill library",
   "scripts": {
     "clean": "rimraf lib",
     "build": "mkdirp lib && babel src/index.ts > ./lib/request-animation-frame-polyfill.js && npx tsc && mv build/index.d.ts ./lib/request-animation-frame-polyfill.d.ts",
-    "test": "yarn run build && babel-node --extensions \".ts\" -- ./src/index.test.ts",
-    "prepare": "yarn run clean && mkdirp lib && yarn run test"
+    "test": "babel-node --extensions \".ts\" -- ./src/index.test.ts",
+    "prepare": "yarn run clean && yarn build && yarn run test"
   },
   "repository": {
     "type": "git",

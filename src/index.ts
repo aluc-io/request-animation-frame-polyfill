@@ -27,13 +27,10 @@ export const pnow = (): number => {
   return Date.now() - nowOffset
 }
 
-interface IReservedCBs {
-  [key: string]: Function
-}
+interface IReservedCBs { [key: string]: Function }
+let reservedCBs: IReservedCBs = {}
 
 let lastTime = Date.now()
-
-let reservedCBs: IReservedCBs = {}
 
 const polyfillRaf = (callback: Function) => {
   if (typeof callback !== 'function') {
