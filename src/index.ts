@@ -65,24 +65,37 @@ const polyfillCaf = (id: number) => {
   delete reservedCBs[id]
 }
 
-const vendorPrefixArr = ['','webkit','moz','ms','o']
-const nameArr = vendorPrefixArr.map( vp => {
-  return vp === ''
-    ? { raf: 'requestAnimationFrame', caf: 'cancelAnimationFrame' }
-    : { raf: vp+'RequestAnimationFrame', caf: [vp+'CancelAnimationFrame',vp+'CancelRequestAnimationFrame'] }
-})
-
-const idx = nameArr.findIndex(({ raf }) => root[raf])
+const vpArr = ['','webkit','moz','ms','o']
 
 type TRequestAnimationFrame = (callback: Function) => number
 type TCancelAnimationFrame = (id: number) => void
-export const requestAnimationFrame: TRequestAnimationFrame = idx > -1
-  ? root[nameArr[idx].raf]
-  : polyfillRaf
 
-export const cancelAnimationFrame: TCancelAnimationFrame = idx > -1
-  ? root[nameArr[idx].caf[0]] || root[nameArr[idx].caf[1]]
-  : polyfillCaf
+const getRequestAnimationFrame = (vp: string | void): TRequestAnimationFrame => {
+  if (typeof vp !== 'string') return polyfillRaf
+  if (vp === '') return root['requestAnimationFrame']
+  return root[vp+'RequestAnimationFrame']
+}
+
+const getCancelAnimationFrame = (vp: string | void): TCancelAnimationFrame => {
+  if (typeof vp !== 'string') return polyfillCaf
+  if (vp === '') return root['cancelAnimationFrame']
+  return root[vp+'CancelAnimationFrame'] || root[vp+'CancelRequestAnimationFrame']
+}
+
+const find = (arr: any[], predicate: Function) => {
+  let i = 0
+  while(arr[i] !== void 0) {
+    if (predicate(arr[i])) return arr[i]
+
+    i = i + 1
+  }
+}
+
+const vp = find(vpArr, (vp: string) => !! getRequestAnimationFrame(vp))
+
+export const requestAnimationFrame: TRequestAnimationFrame = getRequestAnimationFrame(vp)
+export const cancelAnimationFrame: TCancelAnimationFrame = getCancelAnimationFrame(vp)
+
 
 // Browser export as a global
 // https://github.com/JayPuff/seven-tween/blob/master/src/seven-tween.js
@@ -100,3 +113,4 @@ if (typeof module !== "undefined" && module.exports) {
     pnow,
   }
 }
+
