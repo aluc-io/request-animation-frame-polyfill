@@ -6,3 +6,6 @@
 
 /src/
 /yarn.lock
+/.editorconfig
+/babel.config.js
+/tsconfig.json
