@@ -2,7 +2,7 @@ module.exports = api => {
   return (api.env('test')) ? {
     presets: [
       ["@babel/env",{
-        targets: { node: 'current' }
+        targets: '> 0.25%, not dead',
       }],
       ["@babel/typescript", {
         isTSX: true,
@@ -10,13 +10,12 @@ module.exports = api => {
       }],
     ],
     plugins: [
-      './asset/babel-plugin-rewire/babel-plugin-rewire.js',
       '@babel/plugin-transform-runtime',
     ]
   } : {
     presets: [
       ["@babel/env",{
-        targets: { node: 'current' }
+        targets: '> 0.25%, not dead',
       }],
       ["@babel/typescript", {
         isTSX: true,
