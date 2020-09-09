@@ -1,4 +1,7 @@
 # request-animation-frame-polyfill
+
+[![npm version](https://badge.fury.io/js/request-animation-frame-polyfill.svg)](https://badge.fury.io/js/request-animation-frame-polyfill)
+
 `requestAnimationFrame` polyfill library for nodejs and old browsers.
 
 ## Install

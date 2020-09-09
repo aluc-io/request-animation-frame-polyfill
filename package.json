@@ -1,7 +1,7 @@
 {
   "name": "request-animation-frame-polyfill",
   "main": "lib/request-animation-frame-polyfill.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "requestAnimationFrame polyfill library",
   "scripts": {
     "clean": "rimraf lib && rimraf build",
