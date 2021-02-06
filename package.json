@@ -1,6 +1,6 @@
 {
   "name": "request-animation-frame-polyfill",
-  "version": "1.1.0-rc.12",
+  "version": "1.1.0-rc.13",
   "description": "requestAnimationFrame polyfill library",
   "types": "dist/index.d.ts",
   "main": "dist/index.umd.js",
@@ -50,6 +50,7 @@
     "jest": "^26.6.3",
     "rimraf": "^3.0.0",
     "rollup": "^2.38.5",
+    "rollup-plugin-export-default": "^1.4.0",
     "terser": "^5.6.0-beta",
     "ts-jest": "^26.5.0",
     "ts-node": "^9.1.1",
