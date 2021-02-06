@@ -1,20 +1,26 @@
 {
   "name": "request-animation-frame-polyfill",
-  "version": "1.0.2",
+  "version": "1.1.0-rc.4",
   "description": "requestAnimationFrame polyfill library",
-  "main": "dist/request-animation-frame-polyfill.umd.js",
-  "types": "dist/request-animation-frame-polyfill.d.ts",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.umd.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.umd.min.js",
+      "import": "./dist/index.esm.min.js"
+    }
+  },
   "files": [
     "dist"
   ],
-  "module": "dist/request-animation-frame-polyfill.esm.min.js",
+  "module": "dist/index.esm.min.js",
   "scripts": {
-    "clean": "rimraf lib && rimraf build",
+    "clean": "rimraf dist",
     "test": "jest --coverage",
-    "build:types": "tsc -t esnext --moduleResolution node -d --emitDeclarationOnly --outFile dist/request-animation-frame-polyfill.d.ts src/index.ts",
+    "build:types": "tsc -t esnext --moduleResolution node -d --emitDeclarationOnly --outFile dist/index.d.ts src/index.ts",
     "build:js": "rollup -c rollup.config.js",
-    "build:minjs:umd": "terser dist/request-animation-frame-polyfill.umd.js --compress --mangle > dist/request-animation-frame-polyfill.umd.min.js",
-    "build:minjs:esm": "terser dist/request-animation-frame-polyfill.esm.js --compress --mangle > dist/request-animation-frame-polyfill.esm.min.js",
+    "build:minjs:umd": "terser dist/index.umd.js --compress --mangle > dist/index.umd.min.js",
+    "build:minjs:esm": "terser dist/index.esm.js --compress --mangle > dist/index.esm.min.js",
     "build:minjs": "npm run build:minjs:esm -s && npm run build:minjs:umd -s",
     "build": "npm run build:js -s && npm run build:minjs -s && npm run build:types -s"
   },
