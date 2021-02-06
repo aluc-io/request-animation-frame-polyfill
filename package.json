@@ -17,7 +17,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "test": "jest --coverage",
-    "build:types": "tsc -t esnext --moduleResolution node -d --emitDeclarationOnly --outFile dist/index.d.ts src/index.ts",
+    "build:types": "tsc -d --emitDeclarationOnly --outDir dist",
     "build:js": "rollup -c rollup.config.js",
     "build:minjs:umd": "terser dist/index.umd.js --compress --mangle > dist/index.umd.min.js",
     "build:minjs:esm": "terser dist/index.esm.js --compress --mangle > dist/index.esm.min.js",
