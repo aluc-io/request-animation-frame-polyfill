@@ -25,17 +25,19 @@ id = requestAnimationFrame(hello)
 setTimeout( () => cancelAnimationFrame(id), 100)
 ```
 
-## Build & Test
+## Build
 
 Build:
 ```shell
-$ yarn install
-$ npx babel src/index.ts > lib/request-animation-frame-polyfill.js
+$ yarn build
 ```
 
-Test:
-```shell
-$ yarn test
+## Example
+
+```
+$ cd example
+$ npx rollup -c
+$ node index.esm.js
 ```
 
 ## Deploy
