@@ -17,14 +17,7 @@ export {
 root.requestAnimationFrame2 = requestAnimationFrame
 root.cancelAnimationFrame2 = cancelAnimationFrame
 
-// Node Export
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = {
-    requestAnimationFrame,
-    cancelAnimationFrame,
-  }
-}
-
+export default { requestAnimationFrame, cancelAnimationFrame }
 
 /*
  * Below 4 methods should be available on consumer side:
