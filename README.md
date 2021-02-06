@@ -32,6 +32,14 @@ Build:
 $ yarn build
 ```
 
+## Example
+
+```
+$ cd example
+$ npx rollup -c
+$ node index.esm.js
+```
+
 ## Deploy
 
 ```shell

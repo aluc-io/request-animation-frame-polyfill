@@ -16,3 +16,24 @@ export {
 // Browser export as a global
 root.requestAnimationFrame = requestAnimationFrame
 root.cancelAnimationFrame = cancelAnimationFrame
+
+const exportDefault = {requestAnimationFrame, cancelAnimationFrame}
+export default exportDefault
+
+/*
+ * Below 4 methods should be available on consumer side:
+ *
+ * <script src="https://.../index.umd.min.js"></script>
+ * requestAnimationFrame, cancelAnimationFrame
+ *
+ * const {requestAnimationFrame, cancelAnimationFrame} require('request-animation-frame-polyfill')
+ * const rafp require('request-animation-frame-polyfill')
+ * rafp.requestAnimationFrame, rafp.cancelAnimationFrame
+ *
+ * import rafp from 'request-animation-frame-polyfill'
+ * rafp.requestAnimationFrame, rafp.cancelAnimationFrame
+ *
+ * import {requestAnimationFrame, cancelAnimationFrame} from 'request-animation-frame-polyfill'
+ * import * as rafp from 'request-animation-frame-polyfill'
+ * rafp.requestAnimationFrame, rafp.cancelAnimationFrame
+*/

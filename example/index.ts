@@ -1,4 +1,4 @@
-import { requestAnimationFrame, cancelAnimationFrame } from '../dist/request-animation-frame-polyfill.esm'
+import { requestAnimationFrame, cancelAnimationFrame } from '../dist/index.esm'
 
 let idHello: number
 let idHi: number
