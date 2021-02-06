@@ -1,6 +1,6 @@
 {
   "name": "request-animation-frame-polyfill",
-  "version": "1.0.2",
+  "version": "1.1.0-rc.2",
   "description": "requestAnimationFrame polyfill library",
   "main": "dist/request-animation-frame-polyfill.umd.js",
   "types": "dist/request-animation-frame-polyfill.d.ts",
