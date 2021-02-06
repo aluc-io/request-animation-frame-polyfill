@@ -14,8 +14,8 @@ export {
 }
 
 // Browser export as a global
-root.requestAnimationFrame = requestAnimationFrame
-root.cancelAnimationFrame = cancelAnimationFrame
+root.requestAnimationFrame2 = requestAnimationFrame
+root.cancelAnimationFrame2 = cancelAnimationFrame
 
 /*
  * Below 4 methods should be available on consumer side:

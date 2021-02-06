@@ -41,6 +41,9 @@
     "url": "https://github.com/aluc-io/request-animation-frame-polyfill/issues"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@rollup/plugin-babel": "^5.2.3",
     "@rollup/plugin-typescript": "^8.1.1",
     "@types/jest": "^26.0.20",
     "@types/node": "12.19.15",
