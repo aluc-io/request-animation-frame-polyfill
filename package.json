@@ -2,16 +2,22 @@
   "name": "request-animation-frame-polyfill",
   "version": "1.1.0-rc.2",
   "description": "requestAnimationFrame polyfill library",
-  "main": "dist/request-animation-frame-polyfill.umd.js",
   "types": "dist/request-animation-frame-polyfill.d.ts",
+  "main": "dist/request-animation-frame-polyfill.umd.js",
+  "exports": {
+    ".": {
+      "require": "./dist/request-animation-frame-polyfill.umd.min.js",
+      "import": "./dist/request-animation-frame-polyfill.esm.min.js"
+    }
+  },
   "files": [
     "dist"
   ],
   "module": "dist/request-animation-frame-polyfill.esm.min.js",
   "scripts": {
-    "clean": "rimraf lib && rimraf build",
+    "clean": "rimraf dist",
     "test": "jest --coverage",
-    "build:types": "tsc -t esnext --moduleResolution node -d --emitDeclarationOnly --outFile dist/request-animation-frame-polyfill.d.ts src/index.ts",
+    "build:types": "tsc -t esnext --moduleResolution node -d --emitDeclarationOnly --outFile dist/index.d.ts src/index.ts",
     "build:js": "rollup -c rollup.config.js",
     "build:minjs:umd": "terser dist/request-animation-frame-polyfill.umd.js --compress --mangle > dist/request-animation-frame-polyfill.umd.min.js",
     "build:minjs:esm": "terser dist/request-animation-frame-polyfill.esm.js --compress --mangle > dist/request-animation-frame-polyfill.esm.min.js",
