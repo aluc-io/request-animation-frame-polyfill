@@ -17,8 +17,7 @@ export {
 root.requestAnimationFrame = requestAnimationFrame
 root.cancelAnimationFrame = cancelAnimationFrame
 
-const exportDefault = {requestAnimationFrame, cancelAnimationFrame}
-export default exportDefault
+export default {requestAnimationFrame, cancelAnimationFrame}
 
 /*
  * Below 4 methods should be available on consumer side:
