@@ -36,8 +36,7 @@ $ yarn build
 
 ```
 $ cd example
-$ npx rollup -c
-$ node index.esm.js
+$ npx ts-node main.ts
 ```
 
 ## Deploy
